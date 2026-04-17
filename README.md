@@ -10,10 +10,10 @@ Este repositorio contiene el desarrollo de un modelo computacional para simular 
 
 ## Aspectos Técnicos
 El modelo resuelve la ecuación fundamental de crecimiento tumoral:
-$$\frac{\partial c}{\partial t} = D \nabla^2 c + \rho c (1 - c)$$
+$$\frac{\partial u}{\partial u} = D \nabla^2 u + \rho u (1 - u)$$
 
 Donde:
-* $c$: Densidad de células tumorales.
+* $u$: Densidad de células tumorales.
 * $D$: Coeficiente de difusión (invasividad).
 * $\rho$: Tasa de proliferación (crecimiento logístico).
 
