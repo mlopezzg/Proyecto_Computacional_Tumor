@@ -1,9 +1,13 @@
 import nibabel as nib
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 # 1. Cargar el archivo MINC
-archivo_mnc = 'Codigos/t1_icbm_normal_1mm_pn0_rf0.mnc.gz'
+directorio_script = os.path.dirname(os.path.abspath(__file__))
+
+archivo_mnc = os.path.join(directorio_script, 't1_icbm_normal_1mm_pn0_rf0.mnc.gz')
+
 img = nib.load(archivo_mnc)
 
 # 2. Extraer la matriz de datos numéricos (array 3D)
@@ -14,6 +18,8 @@ corte_z = data.shape[0] // 2
 corte_axial = data[corte_z, :, :]
 
 
+''' 
+# BLOQUE GRÁFICO 1 SILENCIADO
 # 4. Visualizar la matriz en escala de grises
 plt.figure(figsize=(6, 6))
 plt.imshow(corte_axial, cmap='gray')
@@ -21,6 +27,7 @@ plt.title(f'Corte Axial del Cerebro (Z = {corte_z})')
 plt.colorbar(label='Intensidad de señal (T1)')
 plt.axis('off')
 plt.show()
+'''
 
 # --- NUEVA SECCIÓN: ANÁLISIS DE INTENSIDADES ---
 
@@ -29,6 +36,8 @@ plt.show()
 # y enfocarnos solo en el cerebro.
 datos_pixeles = corte_axial[corte_axial > 10].flatten()
 
+'''
+# BLOQUE GRÁFICO 2 SILENCIADO
 # Creamos el histograma
 plt.figure(figsize=(8, 5))
 plt.hist(datos_pixeles, bins=100, color='gray', edgecolor='black', alpha=0.7)
@@ -37,6 +46,7 @@ plt.xlabel('Valor de Intensidad del Píxel')
 plt.ylabel('Frecuencia (Cantidad de píxeles)')
 plt.grid(True, alpha=0.5)
 plt.show()
+'''
 
 # --- NUEVA SECCIÓN: CREACIÓN DE LA MATRIZ DE DIFUSIÓN D(x,y) ---
 
@@ -61,6 +71,8 @@ for i in range(corte_axial.shape[0]):
         else:
             matriz_D[i, j] = D_cero
 
+
+# BLOQUE GRÁFICO 3 SILENCIADO
 # 4. Visualizamos la matriz D resultante (para verificar la segmentación)
 plt.figure(figsize=(6, 6))
 plt.imshow(matriz_D, cmap='viridis') # 'viridis' resalta los 3 niveles de D
