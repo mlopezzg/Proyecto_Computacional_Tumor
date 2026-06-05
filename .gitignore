@@ -1,0 +1,15 @@
+# Archivos autoguardados de Jupyter Notebook
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Archivos caché compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Configuraciones de VS Code (opcional pero recomendado)
+.vscode/
+
+# Entornos virtuales (por si llegas a crear uno en el futuro)
+venv/
+env/

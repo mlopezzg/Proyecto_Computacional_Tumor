@@ -18,7 +18,7 @@ corte_z = data.shape[0] // 2
 corte_axial = data[corte_z, :, :]
 
 
-''' 
+
 # BLOQUE GRÁFICO 1 SILENCIADO
 # 4. Visualizar la matriz en escala de grises
 plt.figure(figsize=(6, 6))
@@ -27,7 +27,7 @@ plt.title(f'Corte Axial del Cerebro (Z = {corte_z})')
 plt.colorbar(label='Intensidad de señal (T1)')
 plt.axis('off')
 plt.show()
-'''
+
 
 # --- NUEVA SECCIÓN: ANÁLISIS DE INTENSIDADES ---
 
@@ -36,7 +36,7 @@ plt.show()
 # y enfocarnos solo en el cerebro.
 datos_pixeles = corte_axial[corte_axial > 10].flatten()
 
-'''
+
 # BLOQUE GRÁFICO 2 SILENCIADO
 # Creamos el histograma
 plt.figure(figsize=(8, 5))
@@ -46,7 +46,7 @@ plt.xlabel('Valor de Intensidad del Píxel')
 plt.ylabel('Frecuencia (Cantidad de píxeles)')
 plt.grid(True, alpha=0.5)
 plt.show()
-'''
+
 
 # --- NUEVA SECCIÓN: CREACIÓN DE LA MATRIZ DE DIFUSIÓN D(x,y) ---
 
